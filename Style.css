@@ -1,4 +1,3 @@
-/* 🌟 Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Body dark gradient background */
 body {
     min-height: 100vh;
     display: flex;
@@ -16,224 +14,111 @@ body {
     padding: 20px;
 }
 
-/* Container for centering */
 .container {
     width: 100%;
     max-width: 900px;
     text-align: center;
+    padding: 10px;
 }
 
-/* Heading with neon accent */
+/* Heading */
 h1 {
-    font-size: 3rem;
-    color: #00ffe0; /* Neon cyan */
-    text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
-    margin-bottom: 50px;
-    transition: transform 0.3s ease;
+    font-size: 2.5rem;
+    color: #00ffe0;
+    margin-bottom: 40px;
 }
 
-h1:hover {
-    transform: scale(1.05);
-}
-
-/* Choices Section - glass + neon hover */
+/* Choices - GRID (Best Responsive) */
 .choices {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
 }
 
+/* Choice Card */
 .choice {
-    width: 160px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .choice img {
-    width: 110px;
-    height: 110px;
-    margin-bottom: 10px;
+    width: 100%;
+    max-width: 100px;
+    height: auto;
 }
 
 .choice span {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+    display: block;
+    margin-top: 10px;
+    color: white;
 }
 
-/* Hover neon effect */
+/* Hover */
 .choice:hover {
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 0 15px #ff3d81, 0 0 30px #ff3d81; /* Neon pink glow */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff3d81;
 }
 
-/* Scoreboard - dark glass + neon accent */
+/* Scoreboard */
 .scoreboard {
     display: flex;
     justify-content: center;
-    gap: 4rem;
-    margin-top: 50px;
-}
-
-.score-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    padding: 25px 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    color: #00ffe0; /* Neon cyan text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.score-card p {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.score-card span {
-    font-size: 1.1rem;
-    color: #ff3d81; /* Neon pink label */
-}
-
-.score-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px #00ffe0, 0 0 40px #ff3d81;
-}
-
-/* Message container */
-.msg-container {
+    flex-wrap: wrap;
+    gap: 2rem;
     margin-top: 40px;
 }
 
+.score-card {
+    padding: 20px 30px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+}
+
+.score-card p {
+    font-size: 2.5rem;
+    color: #00ffe0;
+}
+
+.score-card span {
+    color: #ff3d81;
+}
+
+/* Message */
+.msg-container {
+    margin-top: 30px;
+}
+
 #msg {
-    display: inline-block;
-    padding: 15px 40px;
+    padding: 12px 25px;
     border-radius: 30px;
-    font-size: 1.4rem;
-    color: #ffffff;
     background: rgba(0,0,0,0.3);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
-    text-shadow: 0 0 5px #ffffff;
+    color: white;
 }
 
-#msg.win {
-    color: #00ff85; /* Neon green */
-    text-shadow: 0 0 10px #00ff85;
-}
+/* Result Colors */
+.win { color: #00ff85; }
+.lose { color: #ff4d6d; }
+.draw { color: #ffff66; }
 
-#msg.lose {
-    color: #ff4d6d; /* Neon red */
-    text-shadow: 0 0 10px #ff4d6d;
-}
-
-#msg.draw {
-    color: #ffff66; /* Neon yellow */
-    text-shadow: 0 0 10px #ffff66;
-}
-
-#msg:hover {
-    transform: scale(1.05);
-}
-
-
-/* 🌟 Responsive adjustments */
-@media (max-width: 768px) {
-    /* Choices section wraps better on tablets/mobile */
-    .choices {
-        gap: 1rem;
-    }
-
-    .choice {
-        width: 130px;
-        height: 170px;
-    }
-
-    .choice img {
-        width: 90px;
-        height: 90px;
-    }
-
-    .choice span {
-        font-size: 1rem;
-    }
-
-    /* Scoreboard adapts */
-    .scoreboard {
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .score-card {
-        padding: 20px 25px;
-    }
-
-    .score-card p {
-        font-size: 2rem;
-    }
-
-    .score-card span {
-        font-size: 1rem;
-    }
-
-    /* Heading smaller on mobile */
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-
-    /* Message box smaller */
-    #msg {
-        font-size: 1.2rem;
-        padding: 10px 25px;
-    }
-}
-
-/* Extra small screens (phones) */
+/* Mobile Fix */
 @media (max-width: 480px) {
-    .choice {
-        width: 110px;
-        height: 150px;
-    }
-
-    .choice img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .choice span {
-        font-size: 0.9rem;
-    }
-
-    .score-card {
-        padding: 15px 20px;
+    h1 {
+        font-size: 1.8rem;
     }
 
     .score-card p {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
+}
 
-    .score-card span {
-        font-size: 0.85rem;
-    }
-
-    #msg {
-        font-size: 1rem;
-        padding: 8px 20px;
-    }
-
-    h1 {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
+/* Disable hover on mobile */
+@media (hover: none) {
+    .choice:hover {
+        transform: none;
+        box-shadow: none;
     }
 }
